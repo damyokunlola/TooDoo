@@ -1,0 +1,118 @@
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TooDooList.Controllers.RegisterViewModel
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>User Registration</h4>
+            </div>
+            <div class="card-body">
+                <form id="registerForm" asp-action="Register" asp-controller="Account" method="post">
+                    <div class="form-group">
+                        <label for="Name">Full Name</label>
+                        <input type="text" class="form-control" id="Name" name="Name" asp-for="Name" placeholder="Enter your full name" required>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email">Email Address</label>
+                        <input type="email" class="form-control" id="Email" name="Email" asp-for="Email" placeholder="Enter your email" required>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Age">Age</label>
+                        <input type="number" class="form-control" id="Age" name="Age" asp-for="Age" placeholder="Enter your age" min="18" max="120" required>
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Profession">Profession</label>
+                        <input type="text" class="form-control" id="Profession" name="Profession" asp-for="Profession" placeholder="Enter your profession" required>
+                        <span asp-validation-for="Profession" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" id="Password" name="Password" asp-for="Password" placeholder="Enter a strong password" required>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ConfirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" asp-for="ConfirmPassword" placeholder="Confirm your password" required>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    @if (ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+                    {
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <li>@error.ErrorMessage</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+
+                <hr>
+                <p class="text-center">
+                    Already have an account? <a href="/Account/Login">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#registerForm").validate({
+                rules: {
+                    Name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Age: {
+                        required: true,
+                        number: true,
+                        min: 18,
+                        max: 120
+                    },
+                    Profession: {
+                        required: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6
+                    },
+                    ConfirmPassword: {
+                        required: true,
+                        equalTo: "#Password"
+                    }
+                },
+                messages: {
+                    Name: "Please enter a valid name",
+                    Email: "Please enter a valid email",
+                    Age: "Age must be between 18 and 120",
+                    Profession: "Please enter your profession",
+                    Password: "Password must be at least 6 characters",
+                    ConfirmPassword: "Passwords do not match"
+                }
+            });
+        });
+    </script>
+}

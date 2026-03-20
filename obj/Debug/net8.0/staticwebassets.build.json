@@ -1,0 +1,228 @@
+{
+  "Version": 1,
+  "Hash": "Kj3B//7G5RJmlN/7+S+R1CW0k5qv84URubO7IkZAZNk=",
+  "Source": "TooDooList",
+  "BasePath": "_content/TooDooList",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TooDooList\\wwwroot",
+      "Source": "TooDooList",
+      "ContentRoot": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\",
+      "BasePath": "_content/TooDooList",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\css\\site.css",
+      "SourceId": "TooDooList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\",
+      "BasePath": "_content/TooDooList",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ev24gk2zdt",
+      "Integrity": "dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\js\\site.js",
+      "SourceId": "TooDooList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\",
+      "BasePath": "_content/TooDooList",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u0hv3z4c8i",
+      "Integrity": "7vaedPuVI0xpu3RyrjPYfPMOjwkLvJ6fWSvnrphma3c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3285"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Mar 2026 19:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.ev24gk2zdt.css",
+      "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3285"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Mar 2026 19:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ev24gk2zdt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7vaedPuVI0xpu3RyrjPYfPMOjwkLvJ6fWSvnrphma3c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Mar 2026 19:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7vaedPuVI0xpu3RyrjPYfPMOjwkLvJ6fWSvnrphma3c="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.u0hv3z4c8i.js",
+      "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7vaedPuVI0xpu3RyrjPYfPMOjwkLvJ6fWSvnrphma3c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Mar 2026 19:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u0hv3z4c8i"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7vaedPuVI0xpu3RyrjPYfPMOjwkLvJ6fWSvnrphma3c="
+        }
+      ]
+    }
+  ]
+}

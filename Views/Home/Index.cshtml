@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to TooDooList</h1>
+    <p class="lead">Manage your tasks efficiently and track your progress.</p>
+    <hr class="my-4">
+    
+    @if (Context.Session.GetInt32("UserId") == null)
+    {
+        <p>Get started by creating an account or logging in.</p>
+        <a class="btn btn-primary btn-lg" href="/Account/Register" role="button">Register</a>
+        <a class="btn btn-secondary btn-lg" href="/Account/Login" role="button">Login</a>
+    }
+    else
+    {
+        <p>Welcome back! Visit your dashboard to manage your tasks.</p>
+        <a class="btn btn-primary btn-lg" href="/Dashboard" role="button">Go to Dashboard</a>
+    }
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Track Tasks</h5>
+                <p class="card-text">Keep track of all your tasks in one place.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Secure Login</h5>
+                <p class="card-text">Your account is protected with AES encryption.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">View Statistics</h5>
+                <p class="card-text">Visualize your task completion statistics.</p>
+            </div>
+        </div>
+    </div>
+</div>

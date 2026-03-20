@@ -1,0 +1,95 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TooDooList.Services.TaskStatistics
+
+<div class="container">
+    <h1 class="mb-4">Dashboard</h1>
+
+    <div class="row">
+        <!-- Total Tasks -->
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Total Tasks</h5>
+                    <h2>@Model.TotalTasks</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Tasks -->
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Completed Tasks</h5>
+                    <h2>@Model.CompletedTasks</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ongoing Tasks -->
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Ongoing Tasks</h5>
+                    <h2>@Model.OngoingTasks</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cancelled Tasks -->
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Cancelled Tasks</h5>
+                    <h2>@Model.CancelledTasks</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5>Task Statistics Summary</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Task Status</th>
+                                <th>Count</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-primary">Total</span></td>
+                                <td>@Model.TotalTasks</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td>@Model.CompletedTasks</td>
+                                <td>@(Model.TotalTasks > 0 ? ((Model.CompletedTasks * 100) / Model.TotalTasks) : 0)%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-warning">Ongoing</span></td>
+                                <td>@Model.OngoingTasks</td>
+                                <td>@(Model.TotalTasks > 0 ? ((Model.OngoingTasks * 100) / Model.TotalTasks) : 0)%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-danger">Cancelled</span></td>
+                                <td>@Model.CancelledTasks</td>
+                                <td>@(Model.TotalTasks > 0 ? ((Model.CancelledTasks * 100) / Model.TotalTasks) : 0)%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

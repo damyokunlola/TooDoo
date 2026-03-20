@@ -1,0 +1,91 @@
+@{
+    ViewData["Title"] = "Create Task";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TooDooList.Controllers.CreateTaskViewModel
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Create New Task</h4>
+            </div>
+            <div class="card-body">
+                <form id="createTaskForm" asp-action="Create" asp-controller="Task" method="post">
+                    <div class="form-group">
+                        <label for="Title">Task Title</label>
+                        <input type="text" class="form-control" id="Title" name="Title" asp-for="Title" placeholder="Enter task title" required>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <textarea class="form-control" id="Description" name="Description" asp-for="Description" rows="4" placeholder="Enter task description (optional)"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <select class="form-control" id="Status" name="Status" asp-for="Status" required>
+                            <option value="0">Ongoing</option>
+                            <option value="1">Completed</option>
+                            <option value="2">Cancelled</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    @if (ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+                    {
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <li>@error.ErrorMessage</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create Task</button>
+                        <a href="/Dashboard" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#createTaskForm").validate({
+                rules: {
+                    Title: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 200
+                    },
+                    Description: {
+                        maxlength: 1000
+                    },
+                    Status: {
+                        required: true
+                    }
+                },
+                messages: {
+                    Title: {
+                        required: "Please enter a task title",
+                        minlength: "Title must be at least 3 characters",
+                        maxlength: "Title must not exceed 200 characters"
+                    },
+                    Description: {
+                        maxlength: "Description must not exceed 1000 characters"
+                    },
+                    Status: "Please select a status"
+                }
+            });
+        });
+    </script>
+}

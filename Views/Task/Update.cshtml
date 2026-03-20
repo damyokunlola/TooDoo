@@ -1,0 +1,106 @@
+@{
+    ViewData["Title"] = "Update Task";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TooDooList.Controllers.UpdateTaskViewModel
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Update Task</h4>
+            </div>
+            <div class="card-body">
+                @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @ViewData["ErrorMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form id="updateTaskForm" asp-action="Update" asp-controller="Task" method="post">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group mb-3">
+                        <label for="Title" class="form-label">Task Title</label>
+                        <input type="text" class="form-control" id="Title" name="Title" asp-for="Title" placeholder="Enter task title" required>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Description" class="form-label">Description</label>
+                        <textarea class="form-control" id="Description" name="Description" asp-for="Description" rows="4" placeholder="Enter task description (optional)"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Status" class="form-label">Status</label>
+                        <select class="form-control" id="Status" name="Status" asp-for="Status" required>
+                            <option value="0">Ongoing</option>
+                            <option value="1">Completed</option>
+                            <option value="2">Cancelled</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    @if (ViewData.ModelState.Values.SelectMany(v => v.Errors).Any())
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Please fix the following errors:</strong>
+                            <ul>
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <li>@error.ErrorMessage</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Update Task</button>
+                        <a href="@Url.Action("MyTasks", "Task")" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#updateTaskForm").validate({
+                rules: {
+                    Title: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 200
+                    },
+                    Description: {
+                        maxlength: 1000
+                    },
+                    Status: {
+                        required: true
+                    }
+                },
+                messages: {
+                    Title: {
+                        required: "Please enter a task title",
+                        minlength: "Title must be at least 3 characters",
+                        maxlength: "Title cannot exceed 200 characters"
+                    },
+                    Description: {
+                        maxlength: "Description cannot exceed 1000 characters"
+                    },
+                    Status: {
+                        required: "Please select a status"
+                    }
+                },
+                errorClass: "is-invalid",
+                validClass: "is-valid"
+            });
+        });
+    </script>
+}
