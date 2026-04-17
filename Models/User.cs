@@ -28,7 +28,8 @@ namespace TooDooList.Models
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        // Navigation property
+        // Navigation properties
         public virtual ICollection<TaskItem>? Tasks { get; set; }
+        public virtual ICollection<ServiceBooking>? ServiceBookings { get; set; }
     }
 }

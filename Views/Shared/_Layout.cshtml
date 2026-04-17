@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - TooDooList</title>
+    <title>@ViewData["Title"] - Indepth Clean</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
         <div class="container">
-            <a class="navbar-brand" href="/">TooDooList</a>
+            <a class="navbar-brand text-white font-weight-bold" href="/" style="font-size: 1.8em;">
+                <i class="fas fa-spray-can"></i> Indepth Clean
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,31 +23,41 @@
                     @if (Context.Session.GetInt32("UserId") != null)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="/Dashboard">Dashboard</a>
+                            <a class="nav-link text-white" href="/Dashboard" style="font-weight: 500;">
+                                <i class="fas fa-grip"></i> Dashboard
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="taskDropdown" role="button" data-toggle="dropdown">
-                                Tasks
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="bookingDropdown" role="button" data-toggle="dropdown" style="font-weight: 500;">
+                                <i class="fas fa-clipboard-list"></i> Bookings
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="taskDropdown">
-                                <a class="dropdown-item" href="/Task/Create">Create Task</a>
-                                <a class="dropdown-item" href="/Task/MyTasks">My Tasks</a>
+                            <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                                <a class="dropdown-item" href="/Booking/Create"><i class="fas fa-plus"></i> New Booking</a>
+                                <a class="dropdown-item" href="/Booking/MyBookings"><i class="fas fa-list-check"></i> My Bookings</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <span class="nav-link">Welcome, @Context.Session.GetString("UserName")</span>
+                            <span class="nav-link text-white" style="font-weight: 500;">
+                                <i class="fas fa-user"></i> Welcome, @Context.Session.GetString("UserName")
+                            </span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Account/Logout">Logout</a>
+                            <a class="nav-link text-white" href="/Account/Logout" style="font-weight: 500;">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
                         </li>
                     }
                     else
                     {
                         <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login">Login</a>
+                            <a class="nav-link text-white" href="/Account/Login" style="font-weight: 500;">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Account/Register">Register</a>
+                            <a class="nav-link text-white" href="/Account/Register" style="font-weight: 500;">
+                                <i class="fas fa-user-plus"></i> Register
+                            </a>
                         </li>
                     }
                 </ul>
@@ -53,11 +66,11 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container mt-4">
+    <div>
         @if (TempData["SuccessMessage"] != null)
         {
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                @TempData["SuccessMessage"]
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+                <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
                 <button type="button" class="close" data-dismiss="alert">
                     <span>&times;</span>
                 </button>
@@ -66,8 +79,8 @@
 
         @if (TempData["ErrorMessage"] != null)
         {
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                @TempData["ErrorMessage"]
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px;">
+                <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
                 <button type="button" class="close" data-dismiss="alert">
                     <span>&times;</span>
                 </button>
@@ -78,9 +91,35 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer mt-5 py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">&copy; 2024 TooDooList. All rights reserved.</span>
+    <footer class="mt-5 py-4" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border-top: 3px solid #1e8449;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="fas fa-spray-can"></i> Indepth Clean</h5>
+                    <p class="small">Professional cleaning services at your convenience.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled small">
+                        <li><i class="fas fa-check"></i> Laundry Service</li>
+                        <li><i class="fas fa-check"></i> Dry Cleaning</li>
+                        <li><i class="fas fa-check"></i> Deep Cleaning</li>
+                        <li><i class="fas fa-check"></i> Sofa Cleaning</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <p class="small">
+                        <i class="fas fa-phone"></i> 1-800-CLEAN-NOW<br>
+                        <i class="fas fa-envelope"></i> info@indepthclean.com<br>
+                        <i class="fas fa-map-marker-alt"></i> Across Your City
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white" style="opacity: 0.3;">
+            <div class="text-center">
+                <p class="small mb-0">&copy; 2024 Indepth Clean. All rights reserved. | Keeping Your Space Spotless!</p>
+            </div>
         </div>
     </footer>
 

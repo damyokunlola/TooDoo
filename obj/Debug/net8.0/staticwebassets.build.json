@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Kj3B//7G5RJmlN/7+S+R1CW0k5qv84URubO7IkZAZNk=",
+  "Hash": "Hw0jLpcjPdzyLihUyTAlaVDWHDpDTFaoGjbeCAYkhcY=",
   "Source": "TooDooList",
   "BasePath": "_content/TooDooList",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ev24gk2zdt",
-      "Integrity": "dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs=",
+      "Fingerprint": "1d4zbtl06s",
+      "Integrity": "1c85cqubdMgxBioJOnn9etxx9QBSK5Hugh3XcII9u1Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -61,6 +61,51 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/site.1d4zbtl06s.css",
+      "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6539"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1c85cqubdMgxBioJOnn9etxx9QBSK5Hugh3XcII9u1Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Apr 2026 16:36:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1d4zbtl06s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1c85cqubdMgxBioJOnn9etxx9QBSK5Hugh3XcII9u1Y="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -71,7 +116,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3285"
+          "Value": "6539"
         },
         {
           "Name": "Content-Type",
@@ -79,11 +124,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs=\""
+          "Value": "\"1c85cqubdMgxBioJOnn9etxx9QBSK5Hugh3XcII9u1Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 19:27:00 GMT"
+          "Value": "Tue, 14 Apr 2026 16:36:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -93,52 +138,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.ev24gk2zdt.css",
-      "AssetFile": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3285"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 19:27:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ev24gk2zdt"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-dlhMNP+Wk+bUbnfx+BdFC84Gh/k/ptNSpdtuhKa4qPs="
+          "Value": "sha256-1c85cqubdMgxBioJOnn9etxx9QBSK5Hugh3XcII9u1Y="
         }
       ]
     },

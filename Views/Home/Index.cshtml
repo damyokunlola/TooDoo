@@ -4,46 +4,102 @@
 }
 
 <div class="jumbotron">
-    <h1 class="display-4">Welcome to TooDooList</h1>
-    <p class="lead">Manage your tasks efficiently and track your progress.</p>
-    <hr class="my-4">
+    <h1 class="display-4"><i class="fas fa-spray-can"></i> Welcome to Indepth Clean</h1>
+    <p class="lead">Professional cleaning services delivered to your convenience. Book, track, and enjoy spotless spaces.</p>
+    <hr class="my-4" style="background-color: rgba(255,255,255,0.3);">
     
     @if (Context.Session.GetInt32("UserId") == null)
     {
-        <p>Get started by creating an account or logging in.</p>
-        <a class="btn btn-primary btn-lg" href="/Account/Register" role="button">Register</a>
-        <a class="btn btn-secondary btn-lg" href="/Account/Login" role="button">Login</a>
+        <p>Get started by creating an account or logging in to book your cleaning services.</p>
+        <a class="btn btn-light btn-lg" href="/Account/Register" role="button" style="color: #2ecc71; font-weight: 600;">
+            <i class="fas fa-user-plus"></i> Create Account
+        </a>
+        <a class="btn btn-outline-light btn-lg" href="/Account/Login" role="button">
+            <i class="fas fa-sign-in-alt"></i> Log In
+        </a>
     }
     else
     {
-        <p>Welcome back! Visit your dashboard to manage your tasks.</p>
-        <a class="btn btn-primary btn-lg" href="/Dashboard" role="button">Go to Dashboard</a>
+        <p>Welcome back to Indepth Clean! Visit your dashboard to manage your service bookings.</p>
+        <a class="btn btn-light btn-lg" href="/Dashboard" role="button" style="color: #2ecc71; font-weight: 600;">
+            <i class="fas fa-grip"></i> Go to Dashboard
+        </a>
     }
 </div>
 
-<div class="row mt-5">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Track Tasks</h5>
-                <p class="card-text">Keep track of all your tasks in one place.</p>
+<div class="container my-5">
+    <h2 class="text-center mb-5" style="color: #2ecc71;"><i class="fas fa-check-circle"></i> Why Choose Indepth Clean?</h2>
+    
+    <div class="row mb-5">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100" style="border-left: 5px solid #2ecc71;">
+                <div class="card-body text-center">
+                    <i class="fas fa-tshirt" style="font-size: 3em; color: #2ecc71; margin-bottom: 15px;"></i>
+                    <h5 class="card-title">Professional Laundry</h5>
+                    <p class="card-text">Expert laundry services for all your garment needs. We ensure quality care and perfect results.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100" style="border-left: 5px solid #3498db;">
+                <div class="card-body text-center">
+                    <i class="fas fa-droplet" style="font-size: 3em; color: #3498db; margin-bottom: 15px;"></i>
+                    <h5 class="card-title">Premium Dry Cleaning</h5>
+                    <p class="card-text">Specialized care for delicate and premium fabrics. Perfect for your formal wear and special outfits.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100" style="border-left: 5px solid #9b59b6;">
+                <div class="card-body text-center">
+                    <i class="fas fa-home" style="font-size: 3em; color: #9b59b6; margin-bottom: 15px;"></i>
+                    <h5 class="card-title">Deep Cleaning</h5>
+                    <p class="card-text">Comprehensive deep cleaning for your entire home. We leave no corner uncleaned and untouched.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100" style="border-left: 5px solid #e67e22;">
+                <div class="card-body text-center">
+                    <i class="fas fa-couch" style="font-size: 3em; color: #e67e22; margin-bottom: 15px;"></i>
+                    <h5 class="card-title">Sofa Cleaning</h5>
+                    <p class="card-text">Professional sofa and upholstery cleaning. Restore your furniture to pristine, like-new condition.</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Secure Login</h5>
-                <p class="card-text">Your account is protected with AES encryption.</p>
+
+    <div class="row mt-5 pt-5 border-top">
+        <div class="col-md-4 text-center mb-4">
+            <div style="font-size: 3em; color: #2ecc71; margin-bottom: 10px;">
+                <i class="fas fa-check-double"></i>
             </div>
+            <h5>Quality Guaranteed</h5>
+            <p>We guarantee the highest quality of service for all our customers.</p>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">View Statistics</h5>
-                <p class="card-text">Visualize your task completion statistics.</p>
+        <div class="col-md-4 text-center mb-4">
+            <div style="font-size: 3em; color: #2ecc71; margin-bottom: 10px;">
+                <i class="fas fa-shield-alt"></i>
             </div>
+            <h5>Secure & Trusted</h5>
+            <p>Your booking and payment information is completely secure with us.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <div style="font-size: 3em; color: #2ecc71; margin-bottom: 10px;">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h5>24/7 Support</h5>
+            <p>Our customer support team is always here to assist you anytime.</p>
         </div>
     </div>
 </div>
+
+@if (Context.Session.GetInt32("UserId") != null)
+{
+    <div class="container mb-5 text-center">
+        <hr />
+        <a href="/Booking/Create" class="btn btn-success btn-lg" style="background-color: #2ecc71; border: none;">
+            <i class="fas fa-plus"></i> Book a Service Now
+        </a>
+    </div>
+}

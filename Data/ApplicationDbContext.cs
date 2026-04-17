@@ -12,6 +12,7 @@ namespace TooDooList.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<TaskItem> Tasks { get; set; }
+        public DbSet<ServiceBooking> ServiceBookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,13 @@ namespace TooDooList.Data
                 .HasMany(u => u.Tasks)
                 .WithOne(t => t.User)
                 .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Configure ServiceBooking entity
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.ServiceBookings)
+                .WithOne(s => s.User)
+                .HasForeignKey(s => s.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Configure unique constraint on Email

@@ -17,6 +17,7 @@ builder.Services.AddScoped<IEncryptionService, EncryptionService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 
 // Add session services
 builder.Services.AddSession(options =>

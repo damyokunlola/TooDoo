@@ -3,48 +3,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model TooDooList.Services.TaskStatistics
+@model TooDooList.Services.BookingStatistics
 
-<div class="container">
-    <h1 class="mb-4">Dashboard</h1>
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="display-4" style="color: #2ecc71;"><i class="fas fa-spray-can"></i> Cleaning Service Dashboard</h1>
+            <p class="text-muted">Manage your cleaning service bookings</p>
+        </div>
+    </div>
 
     <div class="row">
-        <!-- Total Tasks -->
+        <!-- Total Bookings -->
         <div class="col-md-3 mb-3">
-            <div class="card text-white bg-primary">
-                <div class="card-body">
-                    <h5 class="card-title">Total Tasks</h5>
-                    <h2>@Model.TotalTasks</h2>
+            <div class="card text-white" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">
+                <div class="card-body text-center">
+                    <i class="fas fa-list-check" style="font-size: 2em; margin-bottom: 10px;"></i>
+                    <h5 class="card-title">Total Bookings</h5>
+                    <h2>@Model.TotalBookings</h2>
                 </div>
             </div>
         </div>
 
-        <!-- Completed Tasks -->
+        <!-- Completed Bookings -->
         <div class="col-md-3 mb-3">
-            <div class="card text-white bg-success">
-                <div class="card-body">
-                    <h5 class="card-title">Completed Tasks</h5>
-                    <h2>@Model.CompletedTasks</h2>
+            <div class="card text-white" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                <div class="card-body text-center">
+                    <i class="fas fa-check-circle" style="font-size: 2em; margin-bottom: 10px;"></i>
+                    <h5 class="card-title">Completed</h5>
+                    <h2>@Model.CompletedBookings</h2>
                 </div>
             </div>
         </div>
 
-        <!-- Ongoing Tasks -->
+        <!-- In Progress Bookings -->
         <div class="col-md-3 mb-3">
-            <div class="card text-white bg-warning">
-                <div class="card-body">
-                    <h5 class="card-title">Ongoing Tasks</h5>
-                    <h2>@Model.OngoingTasks</h2>
+            <div class="card text-white" style="background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);">
+                <div class="card-body text-center">
+                    <i class="fas fa-hourglass-half" style="font-size: 2em; margin-bottom: 10px;"></i>
+                    <h5 class="card-title">In Progress</h5>
+                    <h2>@Model.InProgressBookings</h2>
                 </div>
             </div>
         </div>
 
-        <!-- Cancelled Tasks -->
+        <!-- Start Bookings -->
         <div class="col-md-3 mb-3">
-            <div class="card text-white bg-danger">
-                <div class="card-body">
-                    <h5 class="card-title">Cancelled Tasks</h5>
-                    <h2>@Model.CancelledTasks</h2>
+            <div class="card text-white" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                <div class="card-body text-center">
+                    <i class="fas fa-exclamation-circle" style="font-size: 2em; margin-bottom: 10px;"></i>
+                    <h5 class="card-title">Pending</h5>
+                    <h2>@Model.StartBookings</h2>
                 </div>
             </div>
         </div>
@@ -52,39 +61,70 @@
 
     <div class="row mt-4">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
-                    <h5>Task Statistics Summary</h5>
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #2ecc71; color: white; border: none;">
+                    <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Booking Statistics Summary</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
+                    <table class="table table-hover">
+                        <thead style="background-color: #f8f9fa;">
                             <tr>
-                                <th>Task Status</th>
+                                <th>Status</th>
                                 <th>Count</th>
                                 <th>Percentage</th>
+                                <th>Progress</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="badge badge-primary">Total</span></td>
-                                <td>@Model.TotalTasks</td>
+                                <td><span class="badge" style="background-color: #2ecc71; font-size: 0.9em;">Total</span></td>
+                                <td>@Model.TotalBookings</td>
                                 <td>100%</td>
+                                <td>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar" style="width: 100%; background-color: #2ecc71;"></div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td><span class="badge badge-success">Completed</span></td>
-                                <td>@Model.CompletedTasks</td>
-                                <td>@(Model.TotalTasks > 0 ? ((Model.CompletedTasks * 100) / Model.TotalTasks) : 0)%</td>
+                                <td><span class="badge" style="background-color: #3498db; font-size: 0.9em;">Completed</span></td>
+                                <td>@Model.CompletedBookings</td>
+                                <td>@(Model.TotalBookings > 0 ? ((Model.CompletedBookings * 100) / Model.TotalBookings) : 0)%</td>
+                                <td>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar" style="width: @(Model.TotalBookings > 0 ? ((Model.CompletedBookings * 100) / Model.TotalBookings) : 0)%; background-color: #3498db;"></div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td><span class="badge badge-warning">Ongoing</span></td>
-                                <td>@Model.OngoingTasks</td>
-                                <td>@(Model.TotalTasks > 0 ? ((Model.OngoingTasks * 100) / Model.TotalTasks) : 0)%</td>
+                                <td><span class="badge" style="background-color: #f39c12; font-size: 0.9em;">In Progress</span></td>
+                                <td>@Model.InProgressBookings</td>
+                                <td>@(Model.TotalBookings > 0 ? ((Model.InProgressBookings * 100) / Model.TotalBookings) : 0)%</td>
+                                <td>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar" style="width: @(Model.TotalBookings > 0 ? ((Model.InProgressBookings * 100) / Model.TotalBookings) : 0)%; background-color: #f39c12;"></div>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td><span class="badge badge-danger">Cancelled</span></td>
-                                <td>@Model.CancelledTasks</td>
-                                <td>@(Model.TotalTasks > 0 ? ((Model.CancelledTasks * 100) / Model.TotalTasks) : 0)%</td>
+                                <td><span class="badge" style="background-color: #e74c3c; font-size: 0.9em;">Pending</span></td>
+                                <td>@Model.StartBookings</td>
+                                <td>@(Model.TotalBookings > 0 ? ((Model.StartBookings * 100) / Model.TotalBookings) : 0)%</td>
+                                <td>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar" style="width: @(Model.TotalBookings > 0 ? ((Model.StartBookings * 100) / Model.TotalBookings) : 0)%; background-color: #e74c3c;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge" style="background-color: #95a5a6; font-size: 0.9em;">Cancelled</span></td>
+                                <td>@Model.CancelledBookings</td>
+                                <td>@(Model.TotalBookings > 0 ? ((Model.CancelledBookings * 100) / Model.TotalBookings) : 0)%</td>
+                                <td>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar" style="width: @(Model.TotalBookings > 0 ? ((Model.CancelledBookings * 100) / Model.TotalBookings) : 0)%; background-color: #95a5a6;"></div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -92,4 +132,22 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-4 mb-5">
+        <div class="col-md-12">
+            <a href="/Booking/Create" class="btn btn-primary btn-lg" style="background-color: #2ecc71; border: none;">
+                <i class="fas fa-plus"></i> Create New Booking
+            </a>
+            <a href="/Booking/MyBookings" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-eye"></i> View All Bookings
+            </a>
+        </div>
+    </div>
 </div>
+
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+</style>

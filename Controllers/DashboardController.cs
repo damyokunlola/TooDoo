@@ -5,11 +5,11 @@ namespace TooDooList.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly ITaskService _taskService;
+        private readonly IBookingService _bookingService;
 
-        public DashboardController(ITaskService taskService)
+        public DashboardController(IBookingService bookingService)
         {
-            _taskService = taskService;
+            _bookingService = bookingService;
         }
 
         [HttpGet]
@@ -20,7 +20,7 @@ namespace TooDooList.Controllers
             if (userId == null)
                 return RedirectToAction("Login", "Account");
 
-            var statistics = await _taskService.GetTaskStatisticsAsync(userId.Value);
+            var statistics = await _bookingService.GetBookingStatisticsAsync(userId.Value);
             return View(statistics);
         }
     }

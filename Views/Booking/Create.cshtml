@@ -1,0 +1,115 @@
+@{
+    ViewData["Title"] = "Create Booking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TooDooList.Controllers.CreateBookingViewModel
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-lg">
+                <div class="card-header" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border: none;">
+                    <h2 class="mb-0"><i class="fas fa-clipboard-list"></i> Book Our Cleaning Services</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <div class="form-group mb-3">
+                            <label for="ServiceName" class="form-label fw-bold">Service Name</label>
+                            <input type="text" class="form-control" id="ServiceName" name="ServiceName" placeholder="e.g., Home Cleaning" required>
+                            <span asp-validation-for="ServiceName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="ServiceType" class="form-label fw-bold">Select Service Type</label>
+                            <select class="form-control" id="ServiceType" name="ServiceType" required>
+                                <option value="">-- Select a Service --</option>
+                                <option value="0">Laundry</option>
+                                <option value="1">Dry Cleaning</option>
+                                <option value="2">Deep Cleaning</option>
+                                <option value="3">Sofa Cleaning</option>
+                            </select>
+                            <span asp-validation-for="ServiceType" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Description" class="form-label fw-bold">Service Details</label>
+                            <textarea class="form-control" id="Description" name="Description" rows="4" placeholder="Describe your cleaning needs..." style="resize: vertical;"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="ScheduledDate" class="form-label fw-bold">Scheduled Date & Time</label>
+                                    <input type="datetime-local" class="form-control" id="ScheduledDate" name="ScheduledDate" required>
+                                    <span asp-validation-for="ScheduledDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="Price" class="form-label fw-bold">Price ($)</label>
+                                    <input type="number" class="form-control" id="Price" name="Price" placeholder="0.00" step="0.01" min="0" required>
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="Address" class="form-label fw-bold">Service Address</label>
+                            <input type="text" class="form-control" id="Address" name="Address" placeholder="Enter your service address" required>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/Dashboard" class="btn btn-outline-secondary btn-lg">Cancel</a>
+                            <button type="submit" class="btn btn-success btn-lg" style="background-color: #2ecc71; border: none;">
+                                <i class="fas fa-check"></i> Create Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Info Cards -->
+    <div class="row mt-5">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100" style="border-left: 5px solid #2ecc71;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-tshirt" style="color: #2ecc71;"></i> Laundry</h5>
+                    <p class="card-text">Professional laundry services for your clothes and fabrics. We ensure quality care for all your garments.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card h-100" style="border-left: 5px solid #3498db;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-droplet" style="color: #3498db;"></i> Dry Cleaning</h5>
+                    <p class="card-text">Expert dry cleaning for delicate and premium fabrics. Perfect for suits, dresses, and formal wear.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card h-100" style="border-left: 5px solid #9b59b6;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-home" style="color: #9b59b6;"></i> Deep Cleaning</h5>
+                    <p class="card-text">Comprehensive deep cleaning services for your entire home. We leave no space uncleaned.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card h-100" style="border-left: 5px solid #e67e22;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-couch" style="color: #e67e22;"></i> Sofa Cleaning</h5>
+                    <p class="card-text">Professional sofa and upholstery cleaning. Restore your furniture to like-new condition.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

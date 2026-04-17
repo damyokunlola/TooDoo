@@ -22,6 +22,60 @@ namespace TooDooList.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("TooDooList.Models.ServiceBooking", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<DateTime?>("CancelledDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("CompletedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("ScheduledDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ServiceName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<int>("ServiceType")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ServiceBookings");
+                });
+
             modelBuilder.Entity("TooDooList.Models.TaskItem", b =>
                 {
                     b.Property<int>("Id")
@@ -100,6 +154,17 @@ namespace TooDooList.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("TooDooList.Models.ServiceBooking", b =>
+                {
+                    b.HasOne("TooDooList.Models.User", "User")
+                        .WithMany("ServiceBookings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TooDooList.Models.TaskItem", b =>
                 {
                     b.HasOne("TooDooList.Models.User", "User")
@@ -113,6 +178,8 @@ namespace TooDooList.Migrations
 
             modelBuilder.Entity("TooDooList.Models.User", b =>
                 {
+                    b.Navigation("ServiceBookings");
+
                     b.Navigation("Tasks");
                 });
 #pragma warning restore 612, 618

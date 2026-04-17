@@ -1,0 +1,153 @@
+@{
+    ViewData["Title"] = "Update Booking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TooDooList.Controllers.UpdateBookingViewModel
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-lg">
+                <div class="card-header" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border: none;">
+                    <h2 class="mb-0"><i class="fas fa-edit"></i> Update Booking</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="form-group mb-3">
+                            <label for="ServiceName" class="form-label fw-bold">Service Name</label>
+                            <input type="text" class="form-control" id="ServiceName" name="ServiceName" value="@Model.ServiceName" required>
+                            <span asp-validation-for="ServiceName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="ServiceType" class="form-label fw-bold">Select Service Type</label>
+                            <select class="form-control" id="ServiceType" name="ServiceType" required>
+                                @if (Model.ServiceType == TooDooList.Models.ServiceType.Laundry)
+                                {
+                                    <option value="0" selected>Laundry</option>
+                                }
+                                else
+                                {
+                                    <option value="0">Laundry</option>
+                                }
+
+                                @if (Model.ServiceType == TooDooList.Models.ServiceType.DryCleaning)
+                                {
+                                    <option value="1" selected>Dry Cleaning</option>
+                                }
+                                else
+                                {
+                                    <option value="1">Dry Cleaning</option>
+                                }
+
+                                @if (Model.ServiceType == TooDooList.Models.ServiceType.DeepCleaning)
+                                {
+                                    <option value="2" selected>Deep Cleaning</option>
+                                }
+                                else
+                                {
+                                    <option value="2">Deep Cleaning</option>
+                                }
+
+                                @if (Model.ServiceType == TooDooList.Models.ServiceType.SofaCleaning)
+                                {
+                                    <option value="3" selected>Sofa Cleaning</option>
+                                }
+                                else
+                                {
+                                    <option value="3">Sofa Cleaning</option>
+                                }
+                            </select>
+                            <span asp-validation-for="ServiceType" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Description" class="form-label fw-bold">Service Details</label>
+                            <textarea class="form-control" id="Description" name="Description" rows="4" style="resize: vertical;">@Model.Description</textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="ScheduledDate" class="form-label fw-bold">Scheduled Date & Time</label>
+                                    <input type="datetime-local" class="form-control" id="ScheduledDate" name="ScheduledDate" value="@Model.ScheduledDate.ToString("yyyy-MM-ddTHH:mm")" required>
+                                    <span asp-validation-for="ScheduledDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="Price" class="form-label fw-bold">Price ($)</label>
+                                    <input type="number" class="form-control" id="Price" name="Price" value="@Model.Price" step="0.01" min="0" required>
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Address" class="form-label fw-bold">Service Address</label>
+                            <input type="text" class="form-control" id="Address" name="Address" value="@Model.Address" required>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="Status" class="form-label fw-bold">Booking Status</label>
+                            <select class="form-control" id="Status" name="Status" required>
+                                @if (Model.Status == TooDooList.Models.BookingStatus.Start)
+                                {
+                                    <option value="0" selected>Pending</option>
+                                }
+                                else
+                                {
+                                    <option value="0">Pending</option>
+                                }
+
+                                @if (Model.Status == TooDooList.Models.BookingStatus.InProgress)
+                                {
+                                    <option value="1" selected>In Progress</option>
+                                }
+                                else
+                                {
+                                    <option value="1">In Progress</option>
+                                }
+
+                                @if (Model.Status == TooDooList.Models.BookingStatus.Completed)
+                                {
+                                    <option value="2" selected>Completed</option>
+                                }
+                                else
+                                {
+                                    <option value="2">Completed</option>
+                                }
+
+                                @if (Model.Status == TooDooList.Models.BookingStatus.Cancelled)
+                                {
+                                    <option value="3" selected>Cancelled</option>
+                                }
+                                else
+                                {
+                                    <option value="3">Cancelled</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/Booking/Details/@Model.Id" class="btn btn-outline-secondary btn-lg">Cancel</a>
+                            <button type="submit" class="btn btn-success btn-lg" style="background-color: #2ecc71; border: none;">
+                                <i class="fas fa-save"></i> Update Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

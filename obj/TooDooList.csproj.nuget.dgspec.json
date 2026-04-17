@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj": {}
+    "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj": {
+    "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj",
+        "projectUniqueName": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj",
         "projectName": "TooDooList",
-        "projectPath": "c:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj",
+        "projectPath": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\TooDooList.csproj",
         "packagesPath": "C:\\Users\\Okunlolaad\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Okunlolaad\\Desktop\\TooDooList\\obj\\",
+        "outputPath": "C:\\Users\\Okunlolaad\\Desktop\\TooDooList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
